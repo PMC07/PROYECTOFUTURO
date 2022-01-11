@@ -16,14 +16,14 @@ public class Car
     	theGarage = g;
     }
     
-    public void main(String[] args) throws InterruptedException{
+    public STATIC void main(String[] args) throws InterruptedException{
     	Garage g = new Garage();
     	Car car = new Car(g);
         car.accelerate();
-        slowDown();             //He quitado el static desde la declaracion en el main
-        moveDown();
-        accelerate();
-        g.printGarage();   //sustituido "car." por "g."
+        car.slowDown();             //He añadido "car."ya que todos excepto el ultimo son propiedades de car
+        car.moveDown();
+        car.accelerate();
+        g.printGarage();   //sustituido "car." por "g." ya que es una accion del objeto garage
 
     }    
 
@@ -40,10 +40,7 @@ public class Car
         
     }
     
-    /**
-     * Slow down the car
-     * @throws InterruptedException 
-     */
+   
     public void slowDown() throws InterruptedException{
     	String c = new String("     *");        //Mayúsculas en (S)tring
     	for(int i=0; i<5; i++)
@@ -56,10 +53,7 @@ public class Car
     	System.out.println();
     }    
     
-    /**
-     * Move the car downwards
-     * @throws InterruptedException 
-     */    
+    
     public void moveDown() throws InterruptedException{
     	String c = new String("\t\t\t\t  *");    //La primera mayuscula en String y sobraba un paréntesis al final
     	for(int i=0;i<5;i++)          //a la hora de definir el comportamiento del bucle for,se separa con puntos y comas y no por comas
